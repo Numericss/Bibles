@@ -1,0 +1,25 @@
+Dock Build (Generator)
+Version: 1.5.3
+Time: 2022-11-07T04:46:21.235Z
+Hash: 8443cdaf999b1bf0b19d6b68efbb2d07d1c08a3524480839cdf4794aaff75248
+
+Items:
+8443cdaf999b1bf0b19d6b68efbb2d07d1c08a3524480839cdf4794aaff75248 => obs-bible-plugin-dock
+f3107f498fc1350c8a5811219937edd42b646abf27f725aec0c517a6ea749800 => obs-bible-plugin-dock\asset-manifest.json
+3829110ac76a01249ced7ae19895ecd2f81d943553585288f1c5e630872d1fad => obs-bible-plugin-dock\bibles
+9a9f5dbb9a05fcdb3e1b66a350eb44d6173c38fd85a041e43ce48bac11199b8b => obs-bible-plugin-dock\bibles\.gitkeep
+c6d2644e5984ddfe1e91269316ef556348ac070dc3ab17cc6cb645c49fa09726 => obs-bible-plugin-dock\bibles-loaded.js
+fbd42fce5e44dc0c72c7d551357aaadc80d367a491601448a401c3a630de8c23 => obs-bible-plugin-dock\favicon.ico
+17317751abbf094eb0c3f4e85d1c0ca380b167e5193ea0714c789f5d3c45da12 => obs-bible-plugin-dock\index.html
+d74ea7599c2479f6c655ccfae3d3ebbfbdbff37aee1cb4187b232b14dacbfac3 => obs-bible-plugin-dock\static
+3296b22ff2aca584537ec134dc301759a75110ca925b18c96d03518a3d2b149c => obs-bible-plugin-dock\static\css
+f36da471fa163ba180aa373082b61fa7a0b4c85befcaaf821691023fcd3a6aae => obs-bible-plugin-dock\static\css\2.a9672c7c.chunk.css
+ae5103861f718eae05063c5e93efaac4f9d656c8e3780217025ef1f9c56ec855 => obs-bible-plugin-dock\static\css\main.58e53fae.chunk.css
+032fdca63a7a3c23f8d0eff42247ecbdfd23269011e24643a143b7a23a3c3912 => obs-bible-plugin-dock\static\js
+940036f05c62c12a1eddf1ea29ddd6e7d861bd82db26cdcb7706d21b04aabc0c => obs-bible-plugin-dock\static\js\2.b5a8ffa8.chunk.js
+4a50bf2a5b13cbb8d88644adf3b6f9804ce6423c5ebd004866e84b56a5805500 => obs-bible-plugin-dock\static\js\2.b5a8ffa8.chunk.js.LICENSE.txt
+faf1d9ecc15e47d71d4785efe843c9a2f61c02daea28fbbe1b0248034f28af84 => obs-bible-plugin-dock\static\js\3.34ae0eff.chunk.js
+750c905c6625116e225c51f6057d8ab05be674084f444a0e1cbe7dff0d80e8cc => obs-bible-plugin-dock\static\js\main.0e08c71a.chunk.js
+ed96f553c15965e15526236cd9430005e8f946a0a9ef4fce87a6ed1a36bb58e2 => obs-bible-plugin-dock\static\js\runtime-main.4ba2aed3.js
+dd37d7e7ebcf01a8f017b80815d26a84dc984901310de5f8293641ed652181c2 => obs-bible-plugin-dock\static\media
+40f3b6e46051c1229139e37f36de14af4b7a820f1b8805d38a2b4d3a970aad71 => obs-bible-plugin-dock\static\media\firstfruits-studio.0e1f23a1.svg

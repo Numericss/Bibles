@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Browser Source | Bible Plugin for OBS Studio</title>
+
+	<link id="google-fonts" rel="stylesheet">
+
+	<link href="./main.css" rel="stylesheet">
+	<script src="./main.js" defer></script>
+
+	<style id="user-style">
+		/* Prevents sudden flashing of text. */
+		.bible {
+			opacity: 0;
+		}
+	</style>
+
+	<style>
+		:root {
+			--obs-font-scale: 1;
+		}
+	</style>
+</head>
+<body>
+	<div id="root">
+		<div class="bible">
+			<div class="bible__reference">
+				<p class="bible__reference-text"></p>
+				<p class="bible__reference-version"></p>
+			</div>
+			<div class="bible__passage">
+				<p class="bible__passage-text">
+					<span class="bible__passage-text-span"></span>
+				</p>
+			</div>
+		</div>
+		<!-- Invisible element for performing calculations. -->
+		<div class="bible" id="invisible-bible">
+			<div class="bible__reference">
+				<p class="bible__reference-text"></p>
+				<p class="bible__reference-version"></p>
+			</div>
+			<div class="bible__passage">
+				<p class="bible__passage-text">
+					<span class="bible__passage-text-span"></span>
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

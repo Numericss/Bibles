@@ -1,0 +1,10 @@
+Browser Build (Generator)
+Version: 1.5.3
+Time: 2022-11-07T04:44:37.920Z
+Hash: 9ec94c41e75f92658e4b27e7622972f667ed94c187b6450af992d9e45346d7fe
+
+Items:
+9ec94c41e75f92658e4b27e7622972f667ed94c187b6450af992d9e45346d7fe => obs-bible-plugin-browser
+756e1ee451eca85e0e2268d9f41d3021ec8429038b7e3ac6d4041ef3e3d35f2f => obs-bible-plugin-browser\index.html
+e7ac3ea9858a55d1b598faf285bd37623a987bd94c13a085cc645622e5171027 => obs-bible-plugin-browser\main.css
+03ee13d05ade8cc408fd21777262e4041f2b653fa17369681cc235a7ecbb93bc => obs-bible-plugin-browser\main.js
