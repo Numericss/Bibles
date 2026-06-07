@@ -10,16 +10,25 @@ Double-click `Install to OBS.command`. It copies the plugin files to:
 
 The script prints the exact Dock URL and Browser Source path after it finishes.
 
+For the most reliable macOS setup, double-click `Start OBS Bible Server.command` after installing and keep that window open while OBS is using the Bible. It serves the dock and the Bible Text source from the same local address so they can communicate.
+
 ## Add It In OBS
 
-1. In OBS, add a `Browser` source named `Bible Overlay`.
-2. Enable `Local file` and choose `obs-bible-plugin-browser/index.html` from the installed folder.
-3. Set the browser source size to match your canvas, such as `1920 x 1080`.
-4. Go to `Docks > Custom Browser Docks`.
-5. Add a dock named `Bible` and paste the printed `Bible Dock URL`.
-6. Use the dock to select a Bible, search a reference, send verses to the overlay, and show or hide the text.
+1. Double-click `Start OBS Bible Server.command`.
+2. In OBS, add a `Browser` source named `Bible Text`.
+3. Leave `Local file` unchecked and paste this URL:
 
-Keep the dock and browser source files from the same installed folder so their `BroadcastChannel` connection can find the overlay.
+   `http://127.0.0.1:8765/obs-bible-plugin-browser/index.html`
+
+4. Set the browser source size to match your canvas, such as `1920 x 1080`.
+5. Go to `Docks > Custom Browser Docks`.
+6. Add a dock named `Bible` and paste this URL:
+
+   `http://127.0.0.1:8765/obs-bible-plugin-dock/index.html`
+
+7. Use the dock to select a Bible, search a reference, send verses to the overlay, and show or hide the text.
+
+Keep the server window open. The dock and browser source need the same `127.0.0.1` address so their `BroadcastChannel` connection can find the overlay.
 
 ## Match The Target Layout
 
