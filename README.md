@@ -21,6 +21,18 @@ The script prints the exact Dock URL and Browser Source path after it finishes.
 
 Keep the dock and browser source files from the same installed folder so their `BroadcastChannel` connection can find the overlay.
 
+## Match The Target Layout
+
+The target OBS layout is:
+
+1. A background `Image` source at the bottom of the scene.
+2. The `Bible Overlay` browser source above the background image.
+3. A right-side custom browser dock named `Bible`.
+4. The dock opened to a passage list, such as `John 3:1-36 (KJV)`.
+5. One selected verse sent to the lower-third overlay.
+
+For the lower-third style shown in the target screenshot, open the dock's theme tab and use `Bookmark: Purple`. It gives the purple banner-style overlay with the reference on the left, translation on the right, and verse text underneath.
+
 ## Included Bibles
 
 The package includes the original JavaScript Bibles plus converted OpenLP/SQLite Bibles from the supplied folder. To rebuild the generated Bible files, double-click `Rebuild Bibles.command`.
