@@ -27,3 +27,6 @@ echo "If the OBS source ever stops responding, double-click:"
 echo "$DEST/Start OBS Bible Server.command"
 echo
 echo "Use the 127.0.0.1 URLs above in OBS."
+echo
+echo "Opening the Bible Dock now..."
+open "http://127.0.0.1:8765/obs-bible-plugin-dock/index.html"

@@ -14,6 +14,8 @@ The installer also starts a small local Bible server at `127.0.0.1:8765`. It ser
 
 ## Add It In OBS
 
+Do not open plain `127.0.0.1`. Always use the full URL with port `8765`.
+
 1. In OBS, add a `Browser` source named `Bible Text`.
 2. Leave `Local file` unchecked and paste this URL:
 
