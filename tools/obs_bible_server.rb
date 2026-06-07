@@ -36,7 +36,7 @@ puts
 puts "Bible Text Browser Source URL:"
 puts "http://127.0.0.1:#{port}/obs-bible-plugin-browser/index.html"
 puts
-puts "Keep this window open while using the Bible dock in OBS."
+puts "Keep this window open while using the Bible dock in OBS." if $stdout.tty?
 puts
 
 server.start
