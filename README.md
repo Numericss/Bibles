@@ -8,13 +8,13 @@ Double-click `Install to OBS.command`. It copies the plugin files to:
 
 `~/Library/Application Support/obs-studio/obs-bible-plugin`
 
-The script prints the exact Dock URL and Browser Source path after it finishes.
+The script prints the exact HTTP URLs for the dock and Browser Source after it finishes.
 
 The installer also starts a small local Bible server at `127.0.0.1:8765`. It serves the dock and the Bible Text source from the same local address so they can communicate. If the local server ever stops, double-click `Start OBS Bible Server.command`.
 
 ## Add It In OBS
 
-Do not open plain `127.0.0.1`. Always use the full URL with port `8765`.
+Always include port `8765`: opening `http://127.0.0.1:8765/` takes you directly to the dock.
 
 1. In OBS, add a `Browser` source named `Bible Text`.
 2. Leave `Local file` unchecked and paste this URL:
@@ -54,3 +54,34 @@ Right-click the `.command` file and choose `Open`, or run this from Terminal ins
 ```zsh
 chmod +x *.command tools/*.rb
 ```
+
+## Server Troubleshooting
+
+The installer checks the Bible server's `/healthz` endpoint before reporting
+success. If startup fails, read `server.err.log` in the installed plugin folder.
+An unrelated app listening on the same port is not considered a working Bible server.
+
+To use another port, run the installer from Terminal:
+
+```zsh
+OBS_BIBLE_PORT=8766 zsh "Install to OBS.command"
+```
+
+Use the printed URLs for **both** the dock and overlay. The port is saved in the
+launch agent. When running the Open/Start helpers from Terminal, pass that same
+`OBS_BIBLE_PORT`; double-clicking those helpers uses the default `8765`.
+Invalid ports fail with an explanation instead of silently using another port.
+
+## Development Checks
+
+```zsh
+ruby tests/server_test.rb
+```
+
+The tests start temporary loopback servers and do not install or modify an OBS
+launch agent. They cover readiness, unrelated servers, routing, allowed assets,
+custom-port URLs, and invalid ports.
+
+The dock is supplied as compiled React bundles, and the overlay JavaScript is
+obfuscated. Original frontend sources and a reproducible build are needed for
+maintainable changes to searching, keyboard controls, and overlay rendering.

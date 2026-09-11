@@ -2,6 +2,8 @@
 set -euo pipefail
 
 SCRIPT_DIR="${0:A:h}"
+PORT="$(ruby "$SCRIPT_DIR/tools/server_config.rb")"
+export OBS_BIBLE_PORT="$PORT"
 DEST="$HOME/Library/Application Support/obs-studio/obs-bible-plugin"
 
 mkdir -p "$DEST"
@@ -28,5 +30,7 @@ echo "$DEST/Start OBS Bible Server.command"
 echo
 echo "Use the 127.0.0.1 URLs above in OBS."
 echo
-echo "Opening the Bible Dock now..."
-open "http://127.0.0.1:8765/obs-bible-plugin-dock/index.html"
+if ruby "$DEST/tools/server_config.rb" --check; then
+  echo "Opening the Bible Dock now..."
+  open "http://127.0.0.1:${PORT}/obs-bible-plugin-dock/index.html"
+fi
