@@ -3,7 +3,8 @@ set -euo pipefail
 
 SCRIPT_DIR="${0:A:h}"
 INSTALLED_ROOT="$HOME/Library/Application Support/obs-studio/obs-bible-plugin"
-PORT="${OBS_BIBLE_PORT:-8765}"
+PORT="$(ruby "$SCRIPT_DIR/tools/server_config.rb")"
+export OBS_BIBLE_PORT="$PORT"
 DOCK_URL="http://127.0.0.1:${PORT}/obs-bible-plugin-dock/index.html"
 
 if [[ -d "$INSTALLED_ROOT/obs-bible-plugin-dock" && -d "$INSTALLED_ROOT/obs-bible-plugin-browser" ]]; then
@@ -13,7 +14,7 @@ else
 fi
 
 server_is_up() {
-	curl -fsS "$DOCK_URL" >/dev/null 2>&1
+	ruby "$SCRIPT_DIR/tools/server_config.rb" --check >/dev/null 2>&1
 }
 
 if ! server_is_up; then

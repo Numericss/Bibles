@@ -4,10 +4,10 @@
 require "cgi"
 require "fileutils"
 require "pathname"
-require "socket"
+require_relative "server_config"
 
 LABEL = "com.numericss.obs-bible-server"
-PORT = 8765
+PORT = BibleServer.port
 
 root = Pathname.new(ARGV[0] || Pathname.new(__dir__).parent).expand_path
 script = root.join("tools", "obs_bible_server.rb")
@@ -69,14 +69,6 @@ def service_loaded?(service)
   system("launchctl", "print", service, out: File::NULL, err: File::NULL)
 end
 
-def port_open?(port)
-  socket = TCPSocket.new("127.0.0.1", port)
-  socket.close
-  true
-rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH
-  false
-end
-
 system("launchctl", "bootout", service, out: File::NULL, err: File::NULL)
 sleep 1
 
@@ -97,9 +89,15 @@ end
 system("launchctl", "kickstart", "-k", service, out: File::NULL, err: File::NULL)
 
 10.times do
-  break if port_open?(PORT)
+  break if BibleServer.ready?(PORT)
 
   sleep 0.5
+end
+
+unless BibleServer.ready?(PORT)
+  warn "The Bible server did not become ready on port #{PORT}."
+  warn "Another app may be using that port. Check #{root.join('server.err.log')} for details."
+  exit 1
 end
 
 puts "OBS Bible local server service is installed and running."

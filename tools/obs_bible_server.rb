@@ -3,11 +3,10 @@
 
 require "pathname"
 require "webrick"
-
-DEFAULT_PORT = 8765
+require_relative "server_config"
 
 root = Pathname.new(ARGV[0] || Pathname.new(__dir__).parent).expand_path
-port = Integer(ENV.fetch("OBS_BIBLE_PORT", DEFAULT_PORT), exception: false) || DEFAULT_PORT
+port = BibleServer.port
 
 unless root.join("obs-bible-plugin-dock", "index.html").file? &&
        root.join("obs-bible-plugin-browser", "index.html").file?
@@ -18,11 +17,27 @@ end
 server = WEBrick::HTTPServer.new(
   BindAddress: "127.0.0.1",
   Port: port,
-  DocumentRoot: root.to_s,
   DirectoryIndex: ["index.html"],
   AccessLog: [],
   Logger: WEBrick::Log.new($stderr, WEBrick::Log::WARN)
 )
+
+# Serve only the two plugin folders, not repository files or server logs.
+%w[obs-bible-plugin-dock obs-bible-plugin-browser].each do |folder|
+  server.mount("/#{folder}", WEBrick::HTTPServlet::FileHandler, root.join(folder).to_s,
+               FancyIndexing: false)
+end
+server.mount_proc("/healthz") do |request, response|
+  raise WEBrick::HTTPStatus::NotFound unless request.path == "/healthz"
+  response["Content-Type"] = "text/plain; charset=utf-8"
+  response["Cache-Control"] = "no-store"
+  response.body = BibleServer::HEALTH_BODY
+end
+server.mount_proc("/") do |request, response|
+  raise WEBrick::HTTPStatus::NotFound unless request.path == "/"
+  response.status = 302
+  response["Location"] = "/obs-bible-plugin-dock/index.html"
+end
 
 trap("INT") { server.shutdown }
 trap("TERM") { server.shutdown }
