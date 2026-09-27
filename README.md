@@ -1,6 +1,8 @@
 # OBS Bible Plugin for macOS
 
-This is a macOS-ready package of the OBS Bible browser source and dock. It does not need the Windows generator app.
+macOS OBS Bible browser dock and overlay: pick a verse in the dock, send it to a live lower-third overlay. Runs a small local server on `127.0.0.1:8765` so the dock and Browser Source can talk. No Windows generator app required.
+
+**Related:** Companion tooling for church streaming / [VIDA TV](https://github.com/Numericss/VidaTV) production workflows. This plugin is optional and does not depend on that stack.
 
 ## Install
 
